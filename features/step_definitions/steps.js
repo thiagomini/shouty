@@ -27,3 +27,8 @@ Then("Lucy hears Sean's message", function () {
   // Write code here that turns the phrase above into concrete actions
   assertThat(this.lucy.messagesHeard(), is([this.message]));
 });
+
+Then("Lucy does not hear Sean's message", function () {
+  // Write code here that turns the phrase above into concrete actions
+  assertThat(this.lucy.messagesHeard(), is([]));
+});
