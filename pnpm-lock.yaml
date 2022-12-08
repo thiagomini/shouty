@@ -2,9 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   '@cucumber/cucumber': ^8.9.0
+  hamjest: ^3.7.3
 
 devDependencies:
   '@cucumber/cucumber': 8.9.0
+  hamjest: 3.7.3
 
 packages:
 
@@ -195,8 +197,16 @@ packages:
       repeat-string: 1.6.1
     dev: true
 
+  /assertion-error/1.1.0:
+    resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
+    dev: true
+
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+    dev: true
+
+  /bluebird/3.7.2:
+    resolution: {integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==}
     dev: true
 
   /brace-expansion/1.1.11:
@@ -383,6 +393,15 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       ini: 2.0.0
+    dev: true
+
+  /hamjest/3.7.3:
+    resolution: {integrity: sha512-HOEutQrkZsARJKavuh8auAfilz3sR9IFeDvzaa4EKUu8Pf05MIMbyy26wRO0MHLd7kJ9gUxLMZlelg4nX7sVEA==}
+    engines: {node: '>=8.0.0'}
+    dependencies:
+      assertion-error: 1.1.0
+      bluebird: 3.7.2
+      lodash: 4.17.21
     dev: true
 
   /has-ansi/4.0.1:
