@@ -2,6 +2,14 @@ const { Given, Then, When } = require("@cucumber/cucumber");
 const { Person } = require("../../src/shouty");
 const { assertThat, is } = require("hamjest");
 
+async function waitTimeInSeconds(seconds) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, seconds * 1000);
+  });
+}
+
 Given("Lucy is located {int} metres from Sean", function (distance) {
   this.lucy = new Person();
   this.sean = new Person();
@@ -9,8 +17,9 @@ Given("Lucy is located {int} metres from Sean", function (distance) {
   this.lucy.moveTo(distance);
 });
 
-When("Sean shouts {string}", function (message) {
+When("Sean shouts {string}", async function (message) {
   this.sean.shout(message);
+  await waitTimeInSeconds(0.2);
   this.message = message;
 });
 
