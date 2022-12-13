@@ -32,6 +32,12 @@ Given("the range is {int} metres", function (range) {
   this.range = range;
 });
 
+Given("people are located at", function (dataTable) {
+  dataTable.hashes().forEach(({ name, location }) => {
+    this.people[name] = new Person(name, location, this.range);
+  });
+});
+
 When("{person} shouts {string}", async function (person, message) {
   this.people[person.name].shout(message);
   this.message = message;
