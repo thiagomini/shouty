@@ -1,6 +1,8 @@
 const { Given, Then, When, Before } = require("@cucumber/cucumber");
 const { assertThat, is } = require("hamjest");
 
+const DEFAULT_MESSAGE = "Hello World";
+
 Before(function () {
   this.people = {};
 });
@@ -22,6 +24,11 @@ Given("a person named {person}", function (person) {
 When("{person} shouts {string}", async function (person, message) {
   this.people[person.name].shout(message);
   this.message = message;
+});
+
+When("{person} shouts", async function (person) {
+  this.people[person.name].shout(DEFAULT_MESSAGE);
+  this.message = DEFAULT_MESSAGE;
 });
 
 Then("{person} hears {person}'s message", function (listener, speaker) {
