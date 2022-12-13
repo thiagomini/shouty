@@ -5,7 +5,8 @@ Feature: Hear shout
   Rule: Shouts can be heard by other users
 
     Scenario: Listener hears a message
-      Given Lucy is located 15 metres from Sean
+      Given a person named Lucy
+      And a person named Sean
       When Sean shouts "free bagels at Sean's"
       Then Lucy hears Sean's message
     
