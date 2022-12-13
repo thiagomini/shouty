@@ -1,5 +1,9 @@
-const { Given, Then, When } = require("@cucumber/cucumber");
+const { Given, Then, When, Before } = require("@cucumber/cucumber");
 const { assertThat, is } = require("hamjest");
+
+Before(function () {
+  console.log("Before hook executed");
+});
 
 Given(
   "{person} is located/standing {int} metre(s) from {person}",
