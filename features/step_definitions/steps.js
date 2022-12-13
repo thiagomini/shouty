@@ -21,6 +21,10 @@ Given("a person named {person}", function (person) {
   this.people[person.name] = person;
 });
 
+Given("the range is {int} metres", function (range) {
+  this.range = range;
+});
+
 When("{person} shouts {string}", async function (person, message) {
   this.people[person.name].shout(message);
   this.message = message;
