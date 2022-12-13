@@ -1,10 +1,13 @@
 const { Given, Then, When, Before } = require("@cucumber/cucumber");
 const { assertThat, is } = require("hamjest");
+const { Person } = require("../../src/shouty");
 
 const DEFAULT_MESSAGE = "Hello World";
+const DEFAULT_RANGE = 15;
 
 Before(function () {
   this.people = {};
+  this.range = DEFAULT_RANGE;
 });
 
 Given(
@@ -19,6 +22,10 @@ Given(
 
 Given("a person named {person}", function (person) {
   this.people[person.name] = person;
+});
+
+Given("a person named {word} is located at {int}", function (person, location) {
+  this.people[person] = new Person(person, location, this.range);
 });
 
 Given("the range is {int} metres", function (range) {
@@ -36,11 +43,9 @@ When("{person} shouts", async function (person) {
 });
 
 Then("{person} hears {person}'s message", function (listener, speaker) {
-  // Write code here that turns the phrase above into concrete actions
   assertThat(this.people[listener.name].messagesHeard(), is([this.message]));
 });
 
-Then("{person} does not hear Sean's message", function (listener) {
-  // Write code here that turns the phrase above into concrete actions
-  assertThat(this.people[listener.name].messagesHeard(), is([]));
+Then("Lucy does not hear Sean's message", function () {
+  assertThat(this.people["Lucy"].messagesHeard(), is([]));
 });

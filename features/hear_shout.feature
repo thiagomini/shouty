@@ -14,18 +14,21 @@ Feature: Hear shout
 
     Scenario: Listener is within close range
       Given the range is 15 metres
-      And Lucy is located 1 metre from Sean
+      And a person named Lucy is located at 0
+      And a person named Sean is located at 1
       When Sean shouts
       Then Lucy hears Sean's message
 
     Scenario: Listener is out of range
       Given the range is 15 metres
-      And Lucy is located 16 metres from Sean
+      And a person named Lucy is located at 0
+      And a person named Sean is located at 16
       When Sean shouts
       Then Lucy does not hear Sean's message
 
     Scenario: Listener is standing in the same place as the shout
       Given the range is 15 metres
-      And Lucy is standing 0 metres from Sean
+      And a person named Lucy is located at 0
+      And a person named Sean is located at 0
       When Sean shouts
       Then Lucy hears Sean's message

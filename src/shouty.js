@@ -3,9 +3,9 @@ const eventBus = new EventEmitter();
 
 module.exports = {
   Person: class Person {
-    constructor(name, range = 15) {
+    constructor(name, location = 0, range = 15) {
       this.name = name;
-      this.position = 0;
+      this.position = location;
       this.messages = [];
       this.range = range;
 
