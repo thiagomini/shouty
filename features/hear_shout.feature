@@ -13,16 +13,16 @@ Feature: Hear shout
   Rule: Shouts should only be heard if listener is within range
 
     Scenario: Listener is within close range
-      Given the range is 15 metres
+      Given the range is 100 metres
       And a person named Lucy is located at 0
-      And a person named Sean is located at 1
+      And a person named Sean is located at 50
       When Sean shouts
       Then Lucy hears Sean's message
 
     Scenario: Listener is out of range
-      Given the range is 15 metres
+      Given the range is 100 metres
       And a person named Lucy is located at 0
-      And a person named Sean is located at 16
+      And a person named Sean is located at 101
       When Sean shouts
       Then Lucy does not hear Sean's message
 
