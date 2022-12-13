@@ -46,3 +46,17 @@ Feature: Hear shout
       Then Lucy hears hears the follwing messages:
         | Free bagels! |
         | Free toast!  |
+
+  Rule: Maximum length of message is 180 characters
+
+    Scenario: Message is too long
+      Given a person named Sean
+      And a person named Lucy
+      When Sean shouts the follwing message:
+      """
+      This is a very long message that should not be heard by anyone
+      This is a very long message that should not be heard by anyone
+      This is a very long message that should not be heard by anyone
+      This is a very long message that should not be heard by anyone
+      """
+      Then Lucy should not hear a shout

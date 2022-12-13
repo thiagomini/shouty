@@ -10,7 +10,12 @@ module.exports = {
       this.range = range;
 
       eventBus.on("message", (message, originPosition) => {
-        if (Math.abs(originPosition - this.position) <= this.range) {
+        const isWithinRange =
+          Math.abs(originPosition - this.position) <= this.range;
+
+        const isShortEnough = message.length <= 180;
+
+        if (isWithinRange && isShortEnough) {
           this.messages.push(message);
         }
       });
