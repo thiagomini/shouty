@@ -3,12 +3,14 @@ const eventBus = new EventEmitter();
 
 module.exports = {
   Person: class Person {
-    constructor(name) {
+    constructor(name, range = 15) {
       this.name = name;
       this.position = 0;
       this.messages = [];
+      this.range = range;
+
       eventBus.on("message", (message, originPosition) => {
-        if (Math.abs(originPosition - this.position) <= 15) {
+        if (Math.abs(originPosition - this.position) <= this.range) {
           this.messages.push(message);
         }
       });
