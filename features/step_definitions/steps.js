@@ -42,8 +42,8 @@ When("{person} shouts", async function (person) {
   this.message = DEFAULT_MESSAGE;
 });
 
-Then("{person} hears {person}'s message", function (listener, speaker) {
-  assertThat(this.people[listener.name].messagesHeard(), is([this.message]));
+Then("Lucy hears Sean's message", function () {
+  assertThat(this.people["Lucy"].messagesHeard(), is([this.message]));
 });
 
 Then("Lucy does not hear Sean's message", function () {
