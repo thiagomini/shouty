@@ -18,3 +18,8 @@ Feature: Hear shout
     Given Lucy is located 16 metres from Sean
     When Sean shouts "free coffee"
     Then Lucy does not hear Sean's message
+
+  Scenario: Listener is standing in the same place as the shout
+    Given Lucy is standing 0 metres from Sean
+    When Sean shouts "free coffee"
+    Then Lucy hears Sean's message

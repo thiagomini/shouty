@@ -2,7 +2,7 @@ const { Given, Then, When } = require("@cucumber/cucumber");
 const { Person } = require("../../src/shouty");
 const { assertThat, is } = require("hamjest");
 
-Given("Lucy is located {int} metre(s) from Sean", function (distance) {
+Given("Lucy is located/standing {int} metre(s) from Sean", function (distance) {
   this.lucy = new Person();
   this.sean = new Person();
 
