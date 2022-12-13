@@ -1,5 +1,5 @@
 const { Given, Then, When, Before } = require("@cucumber/cucumber");
-const { assertThat, is } = require("hamjest");
+const { assertThat, is, assert } = require("hamjest");
 const { Person } = require("../../src/shouty");
 
 const DEFAULT_MESSAGE = "Hello World";
@@ -57,4 +57,9 @@ Then("Lucy hears Sean's message", function () {
 
 Then("Lucy does not hear Sean's message", function () {
   assertThat(this.people["Lucy"].messagesHeard(), is([]));
+});
+
+Then("Lucy hears hears the follwing messages:", function (dataTable) {
+  // Write code here that turns the phrase above into concrete actions
+  assertThat(this.people["Lucy"].messagesHeard(), is(dataTable.raw().flat()));
 });

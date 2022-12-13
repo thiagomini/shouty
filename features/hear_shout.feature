@@ -35,3 +35,14 @@ Feature: Hear shout
         | location | 0    | 0   |
       When Sean shouts
       Then Lucy hears Sean's message
+  
+  Rule: Listener should be able to hear multiple shouts from the same person
+
+    Scenario: Listener hears multiple shouts
+      Given a person named Lucy
+      And a person named Sean
+      When Sean shouts "Free bagels!"
+      And Sean shouts "Free toast!"
+      Then Lucy hears hears the follwing messages:
+        | Free bagels! |
+        | Free toast!  |
