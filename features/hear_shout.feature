@@ -1,4 +1,7 @@
 Feature: Hear shout
+
+  Shouty allows users to "hear" other users "shouts" as long as they are close enough to each other.
+
   Scenario: Listener is within range
     Given Lucy is located 15 metres from Sean
     When Sean shouts "free bagels at Sean's"
